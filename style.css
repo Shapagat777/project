@@ -1,0 +1,275 @@
+/* делаем сброс настроек в body */
+* {
+    /* Чтобы не менять ширину и высоту всех дивов, если этого не сделать
+    тогда заданная высота всех блоков будет автоматичсеки увеличиваться на 
+    задданные пэддинги дополнительно к заданным высоте и ширине, это важно*/
+    /* Применяем это свойство ко всем блокам в проекте */
+    box-sizing: border-box;
+}
+
+ul {
+    /* чистим у всех Лишек точки */
+    list-style-type: none;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header-block {
+    background-color: #274071;
+    /* где 0.25 это прозрачность в тени */
+    box-shadow: 0px 4px 9px 6px rgba(0, 0, 0, 0.25);
+    /* чтобы расположить все <p> горизонтально: */
+    display: flex;
+    /* далее раскидываем их ближе к центру подальше от краев */
+    justify-content: space-around;
+    /* теперь центруем их: */
+    align-items: center;
+    /* делаем отступы от границ */
+    padding: 20px 0;
+    height: 150px;
+}
+
+.header-block img {
+    /* Задаем лого размеры обращаясь к нему через header  */
+    width: 109px;
+    height: 109px;
+}
+
+.header-block_title {
+    /* Обращаемся к <p> через класс и меняем шрифт */
+    font-family: 'Gupter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: #FFFFFF;
+}
+
+.body-block {
+    display: flex;
+}
+
+.body__category-block {
+    /* задаем нашему лейт бару отступы 68 пикселей слева и справа*/
+    width: 364px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px 11px rgba(0, 0, 0, 0.25);
+    /* делаем пэддинг для того чтобы задать границы для наших лишек (А,Б,..) */
+    padding: 22px 35.5px 22px 28px;
+}
+
+.body__category__title {
+    font-family: 'Hurricane';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 104px;
+    color: #852020;
+    /* добавляем внешний отступ с учетом внутреннего paddinga уже (68 - 28px) */
+    margin: 0 32.5px 0 40px;
+}
+
+.category-list_letter {
+    font-family: 'Gupter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: #A5A5A5;
+    /* чтобы наши p не сьезжали убераем внешний отступ */
+    margin: 0;
+}
+
+.category-list_breaker {
+    width: 228px;
+    height: 1px;
+    /* делаем границу для нашей линии */
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
+}
+
+.category-list li {
+    /* делаем внешний отступ до других <p> */
+    margin-bottom: 14px;
+}
+
+.category-list li img {
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.category-list__content-block {
+    /* каждому li передаем дисплей флекс чтобы расположить все горизонтально: */
+    display: flex;
+    /* Опускаем наши линии */
+    align-items: flex-end;
+}
+
+.category__hidden__content {
+    /* задаем сюда отступы, чтобы иннер подвинуть(родительский элемент) */
+    padding-left: 50px;
+    margin-top: 20px;
+    /* Прячем наш выбор для муж и для жен(делаем логику через JS) */
+    display: none;
+}
+
+.category__hidden__inner {
+    list-style-type: disc;
+}
+
+.category__hidden__inner__item {
+    font-family: 'Hubballi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 24px;
+    color: #1E1E1E;
+}
+
+.show {
+    display: block;
+}
+
+.rotateArrow {
+    transform: rotate(180deg);
+}
+
+.clickColor {
+    color: green;
+}
+
+.body__items-block {
+    padding: 36px 44px 45px 61px;
+    /* задаем блоку всю оставшуюся ширину за вычетом блока категорий */
+    width: calc(100% - 364px);
+}
+
+.body__item-search__block .search__title {
+    font-family: 'Gupter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    /* identical to box height */
+    text-decoration-line: underline;
+    color: #000000;
+}
+
+
+.body__item-search__block{
+    display: flex;
+    justify-content: space-between;
+    /* задаем отступ в общем блоке отталкиваясь от самого большого дочернего блока внутри */
+    padding: 31px 36px 32px 63px;
+    align-items: center;
+}
+.body__item-search__block .search__input{
+width: 724px;
+height: 60px;
+border-radius: 10px;
+border: none;
+padding: 10px 0px 10px 93px;
+/* Это короткая запись background: #F0F0F0 url(./images/search\ 1.svg) no-repeat 35px 19px / 22px */
+background-color: #F0F0F0;
+background-image: url(./images/search\ 1.svg);
+background-repeat: no-repeat;
+background-position: 35px 19px;
+background-size: 22px;
+/* чтобы текст был одинаков и в поиске и при написании  */
+font-family: 'Gupter';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 40px;
+
+}
+.body__item-search__block .search__input::placeholder{
+    font-family: 'Gupter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    /* identical to box height */
+    letter-spacing: 0.035em;
+    color: #808080; 
+}
+.body__breaker{
+    width: 637.01px;
+    height: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    transform: rotate(0.36deg);
+}
+.body__item-item__block{
+    padding: 45px 36px 7px 30px;
+    /* чтобы сделать сетку для кроссовок делаем дисплей грид */
+    display: grid;
+    /* чтобы по горизонтали были две карты шириной по 50% */
+    grid-template-columns: 1fr 1fr;
+    /* Задаем отступ между картами товара */
+grid-gap: 40px 145px;
+/* Чтобы задать прокрутку без смещения вниз блока, задаем высоту блока и 
+делаем прокрутку за счет оверфлоу по Y */
+height: 679px;
+overflow-y:scroll ;
+
+
+}
+.body__item-item__block .shop__item {
+    padding: 36px 81px 19px 30px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+border-radius: 10px 10px 0px 0px;
+  /* Чтобы расположить все элементы (фото) вертикально делаем флекс и колумн */
+display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shop__pagination{
+    display: flex;
+    /* задаем расстаяние между элементами(работает только при flex и grid) */
+    gap: 52px;
+}
+.pagination__dot{
+    
+    width: 7px;
+    height: 7px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+.activSlide{
+    /* чтобы точка меняла цвет на черный*/
+    background-color: black;
+}
+.searchTitle{
+    
+}
+
+.item__image__block {
+    margin-bottom: 10px;
+}
+.item__image {
+    width: 150px;
+    height: 180px;
+}
+.search__dropdown{
+    width: 100%;
+    background-color: #808080;
+    position:absolute;
+    z-index: 1;
+}
+.hidden {
+    visibility: hidden;
+}
+.search__block {
+    position:relative;
+    background-color:yellow ;
+}
+.search__dropdown__text {
+    padding: 15px 0 15px 30px;
+    margin: 0;
+}
+.search__dropdown__text:hover {
+    cursor: pointer;
+    background-color:rgba(178, 178, 178, 178);
